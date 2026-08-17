@@ -1,0 +1,65 @@
+Eurobatt site-selection cost simulation
+=========================================
+
+Cost structure (EUR per kWh cell, median year):
+  site            elec    gas   labor    tax   subsid    net
+  DE               9.50   1.90   3.76   0.17     7.31   8.02
+  ES               6.00   1.28   2.32   0.11     8.64   1.07
+  FR               6.75   1.68   3.44   0.18     7.89   4.16
+  IT               8.50   2.08   2.72   0.20     5.01   8.49
+
+NPV / break-even (mean over Monte Carlo):
+  site            scenario      meanNPV        P5       P50       P95  breakEven  prob
+  DE             optimistic      11.03B    10.77B    11.03B    11.27B      3.2   100%
+  DE             baseline        10.54B    10.24B    10.54B    10.83B      3.3   100%
+  DE             pessimistic     10.05B     9.69B    10.06B    10.41B      3.5   100%
+  ES             optimistic      13.95B    13.63B    13.95B    14.25B      1.8   100%
+  ES             baseline        13.46B    13.11B    13.47B    13.84B      1.9   100%
+  ES             pessimistic     12.98B    12.57B    12.96B    13.44B      2.0   100%
+  FR             optimistic      10.51B    10.29B    10.52B    10.73B      1.9   100%
+  FR             baseline        10.12B     9.87B    10.12B    10.40B      2.0   100%
+  FR             pessimistic      9.72B     9.41B     9.72B    10.04B      2.2   100%
+  IT             optimistic       6.08B     5.99B     6.09B     6.18B      3.6   100%
+  IT             baseline         5.86B     5.73B     5.86B     5.98B      3.7   100%
+  IT             pessimistic      5.63B     5.48B     5.64B     5.79B      3.8   100%
+
+Subsidy obtainable within application-deadline window (baseline):
+  DE             deadline=2030  2.00B  (captured)
+  ES             deadline=2029  2.46B  (captured)
+  FR             deadline=2029  1.80B  (captured)
+  IT             deadline=2031  797.99M  (captured)
+
+Sensitivity ranking (* = top swing driver, † = electricity/subsidy market key):
+  [ES]
+    * construction_years     swing=-4.34B (-32.2%)
+    * capacity_utilization   swing=3.02B (22.4%)
+    * subsidy_amount         swing=421.29M (3.1%) †
+      electricity_price      swing=-227.18M (-1.7%) †
+      labor_hourly           swing=-84.92M (-0.6%)
+      gas_price              swing=-47.78M (-0.4%)
+      tax_amount             swing=-4.17M (-0.0%)
+  [FR]
+    * construction_years     swing=-3.35B (-33.1%)
+    * capacity_utilization   swing=2.36B (23.3%)
+    * subsidy_amount         swing=308.70M (3.0%) †
+      electricity_price      swing=-209.95M (-2.1%) †
+      labor_hourly           swing=-100.09M (-1.0%)
+      gas_price              swing=-50.88M (-0.5%)
+      tax_amount             swing=-5.42M (-0.1%)
+  [IT]
+    * construction_years     swing=-2.29B (-39.1%)
+    * capacity_utilization   swing=1.56B (26.6%)
+    * electricity_price      swing=-173.29M (-3.0%) †
+      subsidy_amount         swing=126.69M (2.2%) †
+      labor_hourly           swing=-53.87M (-0.9%)
+      gas_price              swing=-41.45M (-0.7%)
+      tax_amount             swing=-3.96M (-0.1%)
+  [DE]
+    * construction_years     swing=-3.96B (-37.6%)
+    * capacity_utilization   swing=2.61B (24.8%)
+    * electricity_price      swing=-328.17M (-3.1%) †
+      subsidy_amount         swing=317.09M (3.0%) †
+      labor_hourly           swing=-128.93M (-1.2%)
+      gas_price              swing=-64.47M (-0.6%)
+      tax_amount             swing=-5.77M (-0.1%)
+

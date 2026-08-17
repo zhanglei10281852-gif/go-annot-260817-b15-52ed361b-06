@@ -1,0 +1,5 @@
+site,electricity_eur_kwh,gas_eur_kwh,labor_eur_kwh,tax_eur_kwh,subsidy_eur_kwh,net_cost_eur_kwh,annual_production_kwh
+DE,9.5,1.9,3.76,0.171053,7.30994,8.02111,3.04e+07
+ES,6,1.28,2.32,0.112875,8.64198,1.0709,2.835e+07
+FR,6.75,1.68,3.44,0.184211,7.89474,4.15947,2.28e+07
+IT,8.5,2.08,2.72,0.202817,5.00782,8.49499,1.775e+07

@@ -108,7 +108,7 @@ func runOne(s model.Site, c model.Coefficients, sp model.ScenarioParams, startYe
 				taxCost := rec.TaxAmountEUR
 				revenue := production * c.SellingPriceEURkWh
 				cf = revenue - elecCost - gasCost - laborCost - taxCost
-				if t == s.ConstructionYears && (startYear+t) < s.SubsidyDeadlineYear {
+				if t == s.ConstructionYears && (startYear+t) <= s.SubsidyDeadlineYear {
 					subsidy := subBase[idx] * subMult
 					cf += subsidy
 					totalSub[iter] += subsidy

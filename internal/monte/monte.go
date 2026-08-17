@@ -108,7 +108,13 @@ func runOne(s model.Site, c model.Coefficients, sp model.ScenarioParams, startYe
 				taxCost := rec.TaxAmountEUR
 				revenue := production * c.SellingPriceEURkWh
 				cf = revenue - elecCost - gasCost - laborCost - taxCost
-				if t == s.ConstructionYears && (startYear+t) < s.SubsidyDeadlineYear {
+				// The subsidy is captured once when operations first come online
+				// (t == ConstructionYears). The deadline year is itself part of
+				// the application window, so the boundary is inclusive: a site
+				// whose first production year lands on or before the deadline
+				// still receives the subsidy. This keeps before-deadline,
+				// on-deadline and after-deadline behavior consistent.
+				if t == s.ConstructionYears && (startYear+t) <= s.SubsidyDeadlineYear {
 					subsidy := subBase[idx] * subMult
 					cf += subsidy
 					totalSub[iter] += subsidy
